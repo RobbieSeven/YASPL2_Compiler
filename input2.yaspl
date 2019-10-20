@@ -1,0 +1,70 @@
+HEAD
+
+int op, ans;
+double num1, num2, res;
+
+def askOperation(): int userOp; {
+    userOp = 0;
+    "Which operation would you like to perform?\n" ->;
+    while (userOp == 0) do {
+        "Digit 1 for addition\n" ->;
+        "Digit 2 for subtraction\n" ->;
+        "Digit 3 for multiplication\n" ->;
+        "Digit 4 for division\n" ->;
+        userOp <- int;
+        if (userOp < 1 || userOp > 4) then {
+            "Please enter a valid input\n" ->;
+            userOp = 0;
+        };
+    };
+};
+
+def askNumbers(): double userNum1, userNum2; {
+    "Enter first number of operation: " ->;
+    userNum1 <- double;
+    "Enter second number of operation: " ->;
+    userNum2 <- double;
+};
+
+def askToContinue(): int ans; {
+    ans = 2;
+    while (ans == 2) do {
+        "Enter 1 to continue or 0 to stop: " ->;
+        ans <- int;
+        if (not ans == 0 && not ans == 1) then {
+            "Please enter a valid answer\n" ->;
+            ans = 2;
+        };
+    };
+};
+
+START
+
+"Simple calculator\n" ->;
+ans = 1;
+while (ans == 1) do {
+    askOperation(: op);
+    askNumbers(: num1, num2);
+    if (op == 1) then {
+        res = num1 + num2;
+        "Result is ", res, "\n" ->;
+    } else {
+        if (op == 2) then {
+            res = num1 - num2;
+            "Result is ", res, "\n" ->;
+        } else {
+            if (op == 3) then {
+                res = num1 * num2;
+                "Result is ", res, "\n" ->;
+            } else {
+                if (op == 4) then {
+                    res = num1 / num2;
+                    "Result is ", res, "\n" ->;
+                } else {
+                    "Operation not valid\n" ->;
+                };
+            };
+        };
+    };
+    askToContinue(: ans);
+};

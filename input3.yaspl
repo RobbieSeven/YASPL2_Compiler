@@ -1,0 +1,115 @@
+HEAD
+
+int iNum, iRes, op, ans;
+double num1, num2, res;
+
+def add(double n1, n2;): double r; {
+	r = n1 + n2;
+};
+
+def mul(double n1, n2;): double r; {
+	int i;
+	i = 0;
+	r = 0;
+	while (i < n2) do {
+		r = r + n1;
+		i = i + 1;
+	};
+};
+
+def div(double n1, n2;): int r; {
+	if (n1 >= 0 && n2 > 0) then {
+		r = n1 / n2;
+	} else {
+		r = -1;
+	};
+};
+
+def exp(double n; int e;): double r; {
+	r = 1;
+	while (e > 0) do {
+		r = r * n;
+		e = e - 1;
+	};
+};
+
+def fib(int n;): int r; {
+	int f0, f1, i;
+    f0 = 0;
+    f1 = 1;
+    i = 1;
+    while (i < n) do {
+        r = f0 + f1;
+        f0 = f1;
+        f1 = r;
+        i = i + 1;
+    };
+};
+
+START
+
+"Simple calculator\n" ->;
+ans = 1;
+while (ans == 1) do {
+    op = 0;
+    "Which operation would you like to perform?\n" ->;
+    while (op == 0) do {
+        "Digit 1 for addition\n" ->;
+        "Digit 2 for multiplication\n" ->;
+        "Digit 3 for division on positive numbers\n" ->;
+        "Digit 4 for exponentiation\n" ->;
+        "Digit 5 for Fibonacci\n" ->;
+        op <- int;
+        if (op < 1 || op > 5) then {
+            "Please enter a valid input\n" ->;
+            op = 0;
+        };
+    };
+    if (op >= 1 && op <= 3) then {
+    	"Enter numbers of operation:\n" ->;
+	    num1, num2 <- double, double;
+	    if (op == 1) then {
+	        add(num1, num2: res);
+	        "Result is ", res, "\n" ->;
+	    } else {
+	        if (op == 2) then {
+	            mul(num1, num2: res);
+	            "Result is ", res, "\n" ->;
+	        } else {
+	        	div(num1, num2: iRes);
+	            if (not iRes == -1) then {
+	                "Result is ", iRes, "\n" ->;
+	            } else {
+                    "Operation not valid\n" ->;
+                };
+	        };
+        };
+    } else {
+        if (op == 4) then {
+        	"Enter base:\n" ->;
+	    	num1 <- double;
+        	"Enter exponent:\n" ->;
+	    	iNum <- int;
+            exp(num1, iNum: res);
+            "Result is ", res, "\n" ->;
+        } else {
+        	if (op == 5) then {
+        		"Enter number:\n" ->;
+	    		iNum <- int;
+            	fib(iNum: iRes);
+            	"Result is ", iRes, "\n" ->;
+            } else {
+        		"Operation not valid\n" ->;
+        	};
+        };  
+    };
+    ans = -1;
+    while (ans == -1) do {
+        "Enter 1 to continue or 0 to stop: " ->;
+        ans <- int;
+        if (not ans == 0 && not ans == 1) then {
+            "Please enter a valid answer\n" ->;
+            ans = -1;
+        };
+    };
+};

@@ -1,0 +1,72 @@
+HEAD
+
+int op, ans;
+double num1, num2, res;
+
+def add(double n1, n2;): double r; {
+	r = n1 + n2;
+};
+
+def sub(double n1, n2;): double r; {
+	r = n1 - n2;
+};
+
+def mul(double n1, n2;): double r; {
+	r = n1 * n2;
+};
+
+def div(double n1, n2;): double r; {
+	r = n1 / n2;
+};
+
+START
+
+"Simple calculator\n" ->;
+ans = 1;
+while (ans == 1) do {
+    op = 0;
+    "Which operation would you like to perform?\n" ->;
+    while (op == 0) do {
+        "Digit 1 for addition\n" ->;
+        "Digit 2 for subtraction\n" ->;
+        "Digit 3 for multiplication\n" ->;
+        "Digit 4 for division\n" ->;
+        op <- int;
+        if (op < 1 || op > 4) then {
+            "Please enter a valid input\n" ->;
+            op = 0;
+        };
+    };
+    "Enter numbers of operation:\n" ->;
+    num1, num2 <- double, double;
+    if (op == 1) then {
+        add(num1, num2: res);
+        "Result is ", res, "\n" ->;
+    } else {
+        if (op == 2) then {
+            sub(num1, num2: res);
+            "Result is ", res, "\n" ->;
+        } else {
+            if (op == 3) then {
+                mul(num1, num2: res);
+                "Result is ", res, "\n" ->;
+            } else {
+                if (op == 4 && not num2 == 0) then {
+                    div(num1, num2: res);
+                    "Result is ", res, "\n" ->;
+                } else {
+                    "Operation not valid\n" ->;
+                };
+            };
+        };
+    };
+    ans = -1;
+    while (ans == -1) do {
+        "Enter 1 to continue or 0 to stop: " ->;
+        ans <- int;
+        if (not ans == 0 && not ans == 1) then {
+            "Please enter a valid answer\n" ->;
+            ans = -1;
+        };
+    };
+};

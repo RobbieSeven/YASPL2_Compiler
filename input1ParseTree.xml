@@ -1,0 +1,417 @@
+<Program>
+<Decls>
+<Var_decl>
+<Type attr="int"/>
+<Vars>
+<Identifier attr="op"/>
+<Vars>
+<Identifier attr="ans"/>
+</Vars>
+</Vars>
+</Var_decl>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="num1"/>
+<Vars>
+<Identifier attr="num2"/>
+<Vars>
+<Identifier attr="res"/>
+</Vars>
+</Vars>
+</Vars>
+</Var_decl>
+<Def_decl>
+<Identifier attr="add"/>
+<Var_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="n1"/>
+<Vars>
+<Identifier attr="n2"/>
+</Vars>
+</Vars>
+</Var_decl>
+</Var_decls>
+<Par_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="r"/>
+</Vars>
+</Var_decl>
+</Par_decls>
+<Body>
+<Var_decls>
+</Var_decls>
+<Stats>
+<Assign>
+<Identifier attr="r"/>
+<Addition>
+<Identifier attr="n1"/>
+<Identifier attr="n2"/>
+</Addition>
+</Assign>
+</Stats>
+</Body>
+</Def_decl>
+<Def_decl>
+<Identifier attr="sub"/>
+<Var_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="n1"/>
+<Vars>
+<Identifier attr="n2"/>
+</Vars>
+</Vars>
+</Var_decl>
+</Var_decls>
+<Par_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="r"/>
+</Vars>
+</Var_decl>
+</Par_decls>
+<Body>
+<Var_decls>
+</Var_decls>
+<Stats>
+<Assign>
+<Identifier attr="r"/>
+<Subtraction>
+<Identifier attr="n1"/>
+<Identifier attr="n2"/>
+</Subtraction>
+</Assign>
+</Stats>
+</Body>
+</Def_decl>
+<Def_decl>
+<Identifier attr="mul"/>
+<Var_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="n1"/>
+<Vars>
+<Identifier attr="n2"/>
+</Vars>
+</Vars>
+</Var_decl>
+</Var_decls>
+<Par_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="r"/>
+</Vars>
+</Var_decl>
+</Par_decls>
+<Body>
+<Var_decls>
+</Var_decls>
+<Stats>
+<Assign>
+<Identifier attr="r"/>
+<Multiplication>
+<Identifier attr="n1"/>
+<Identifier attr="n2"/>
+</Multiplication>
+</Assign>
+</Stats>
+</Body>
+</Def_decl>
+<Def_decl>
+<Identifier attr="div"/>
+<Var_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="n1"/>
+<Vars>
+<Identifier attr="n2"/>
+</Vars>
+</Vars>
+</Var_decl>
+</Var_decls>
+<Par_decls>
+<Var_decl>
+<Type attr="double"/>
+<Vars>
+<Identifier attr="r"/>
+</Vars>
+</Var_decl>
+</Par_decls>
+<Body>
+<Var_decls>
+</Var_decls>
+<Stats>
+<Assign>
+<Identifier attr="r"/>
+<Division>
+<Identifier attr="n1"/>
+<Identifier attr="n2"/>
+</Division>
+</Assign>
+</Stats>
+</Body>
+</Def_decl>
+</Decls>
+<Stats>
+<Write>
+<String_const attr="Simple calculator\n"/>
+</Write>
+<Assign>
+<Identifier attr="ans"/>
+<Int_const attr="1"/>
+</Assign>
+<While>
+<Equals>
+<Identifier attr="ans"/>
+<Int_const attr="1"/>
+</Equals>
+<Comp_stat>
+<Assign>
+<Identifier attr="op"/>
+<Int_const attr="0"/>
+</Assign>
+<Write>
+<String_const attr="Which operation would you like to perform?\n"/>
+</Write>
+<While>
+<Equals>
+<Identifier attr="op"/>
+<Int_const attr="0"/>
+</Equals>
+<Comp_stat>
+<Write>
+<String_const attr="Digit 1 for addition\n"/>
+</Write>
+<Write>
+<String_const attr="Digit 2 for subtraction\n"/>
+</Write>
+<Write>
+<String_const attr="Digit 3 for multiplication\n"/>
+</Write>
+<Write>
+<String_const attr="Digit 4 for division\n"/>
+</Write>
+<Read>
+<Vars>
+<Identifier attr="op"/>
+</Vars>
+<Types>
+<Type attr="int"/>
+</Types>
+</Read>
+<If_then>
+<Or>
+<Less_than>
+<Identifier attr="op"/>
+<Int_const attr="1"/>
+</Less_than>
+<Greater_than>
+<Identifier attr="op"/>
+<Int_const attr="4"/>
+</Greater_than>
+</Or>
+<Comp_stat>
+<Write>
+<String_const attr="Please enter a valid input\n"/>
+</Write>
+<Assign>
+<Identifier attr="op"/>
+<Int_const attr="0"/>
+</Assign>
+</Comp_stat>
+</If_then>
+</Comp_stat>
+</While>
+<Write>
+<String_const attr="Enter numbers of operation:\n"/>
+</Write>
+<Read>
+<Vars>
+<Identifier attr="num1"/>
+<Identifier attr="num2"/>
+</Vars>
+<Types>
+<Type attr="double"/>
+<Type attr="double"/>
+</Types>
+</Read>
+<If_then_else>
+<Equals>
+<Identifier attr="op"/>
+<Int_const attr="1"/>
+</Equals>
+<Comp_stat>
+<Call>
+<Identifier attr="add"/>
+<Exprs>
+<Identifier attr="num1"/>
+<Identifier attr="num2"/>
+</Exprs>
+<Vars>
+<Identifier attr="res"/>
+</Vars>
+</Call>
+<Write>
+<String_const attr="Result is "/>
+<Identifier attr="res"/>
+<String_const attr="\n"/>
+</Write>
+</Comp_stat>
+<Comp_stat>
+<If_then_else>
+<Equals>
+<Identifier attr="op"/>
+<Int_const attr="2"/>
+</Equals>
+<Comp_stat>
+<Call>
+<Identifier attr="sub"/>
+<Exprs>
+<Identifier attr="num1"/>
+<Identifier attr="num2"/>
+</Exprs>
+<Vars>
+<Identifier attr="res"/>
+</Vars>
+</Call>
+<Write>
+<String_const attr="Result is "/>
+<Identifier attr="res"/>
+<String_const attr="\n"/>
+</Write>
+</Comp_stat>
+<Comp_stat>
+<If_then_else>
+<Equals>
+<Identifier attr="op"/>
+<Int_const attr="3"/>
+</Equals>
+<Comp_stat>
+<Call>
+<Identifier attr="mul"/>
+<Exprs>
+<Identifier attr="num1"/>
+<Identifier attr="num2"/>
+</Exprs>
+<Vars>
+<Identifier attr="res"/>
+</Vars>
+</Call>
+<Write>
+<String_const attr="Result is "/>
+<Identifier attr="res"/>
+<String_const attr="\n"/>
+</Write>
+</Comp_stat>
+<Comp_stat>
+<If_then_else>
+<And>
+<Equals>
+<Identifier attr="op"/>
+<Int_const attr="4"/>
+</Equals>
+<Not>
+<Equals>
+<Identifier attr="num2"/>
+<Int_const attr="0"/>
+</Equals>
+</Not>
+</And>
+<Comp_stat>
+<Call>
+<Identifier attr="div"/>
+<Exprs>
+<Identifier attr="num1"/>
+<Identifier attr="num2"/>
+</Exprs>
+<Vars>
+<Identifier attr="res"/>
+</Vars>
+</Call>
+<Write>
+<String_const attr="Result is "/>
+<Identifier attr="res"/>
+<String_const attr="\n"/>
+</Write>
+</Comp_stat>
+<Comp_stat>
+<Write>
+<String_const attr="Operation not valid\n"/>
+</Write>
+</Comp_stat>
+</If_then_else>
+</Comp_stat>
+</If_then_else>
+</Comp_stat>
+</If_then_else>
+</Comp_stat>
+</If_then_else>
+<Assign>
+<Identifier attr="ans"/>
+<U_minus>
+<Int_const attr="1"/>
+</U_minus>
+</Assign>
+<While>
+<Equals>
+<Identifier attr="ans"/>
+<U_minus>
+<Int_const attr="1"/>
+</U_minus>
+</Equals>
+<Comp_stat>
+<Write>
+<String_const attr="Enter 1 to continue or 0 to stop: "/>
+</Write>
+<Read>
+<Vars>
+<Identifier attr="ans"/>
+</Vars>
+<Types>
+<Type attr="int"/>
+</Types>
+</Read>
+<If_then>
+<And>
+<Not>
+<Equals>
+<Identifier attr="ans"/>
+<Int_const attr="0"/>
+</Equals>
+</Not>
+<Not>
+<Equals>
+<Identifier attr="ans"/>
+<Int_const attr="1"/>
+</Equals>
+</Not>
+</And>
+<Comp_stat>
+<Write>
+<String_const attr="Please enter a valid answer\n"/>
+</Write>
+<Assign>
+<Identifier attr="ans"/>
+<U_minus>
+<Int_const attr="1"/>
+</U_minus>
+</Assign>
+</Comp_stat>
+</If_then>
+</Comp_stat>
+</While>
+</Comp_stat>
+</While>
+</Stats>
+</Program>
+
